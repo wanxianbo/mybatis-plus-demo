@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wxb.mp.mapper.UserMapper">
+
+    <select id="findProductList" resultType="com.wxb.mp.pojo.ProductVO">
+        SELECT
+	      p.*,u.`name` username
+        FROM
+	      `product` p,
+	      `user` u
+        WHERE
+	      p.user_id = u.id
+	    AND u.id = #{userId};
+    </select>
+</mapper>
